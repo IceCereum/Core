@@ -703,6 +703,10 @@ def mine_block():
         "ERROR CREATING BLOCK" : There was something that went wrong when
                                  creating the block
         "BLOCK CREATED"        : The block was created
+
+    cURL command:
+        curl -H "Content-Type: application/json" -X GET -d \
+            '{"secret":"SECRET"}' http://127.0.0.1:4500/mine-block
     """
     POST_data = Crypto.get_latest_block_metaparams()
 

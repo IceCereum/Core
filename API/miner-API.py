@@ -5,7 +5,7 @@ from flask import jsonify, request, make_response
 sys.path.insert(0, "./")
 from MiningNode.miner import *
 
-MINING_ADDRESS = "0x0acc12cb5c4d8eb3d3bc6540176af2318031ad92"
+MINING_ADDRESS = "0x..........."
 
 app = flask.Flask(__name__)
 
@@ -26,12 +26,12 @@ def mine_hash():
     """
     request_body = request.json
 
-    hash_string, nonce, TXPOOL = mine(request_body, MINING_ADDRESS)
+    hash_string, nonce, mod_TXPOOL = mine(request_body, MINING_ADDRESS)
 
     response = {
         "hash_string" : hash_string,
         "nonce" : nonce,
-        "transactions" : TXPOOL,
+        "transactions" : mod_TXPOOL,
     }
 
     return make_response(jsonify(response), 200)
